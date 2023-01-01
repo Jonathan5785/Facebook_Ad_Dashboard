@@ -1,4 +1,4 @@
-# Facebook_Ad_Campaign_Dashboard
+# Facebook_Ad_Dashboard
 Sample Marketing Dashboard Using Streamlit
 Link to Streamlit App and Screenshots: https://jonathan5785-facebook-ad-dashboard-app-rbmrbx.streamlit.app/
 
