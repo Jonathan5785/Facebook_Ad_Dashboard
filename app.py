@@ -36,7 +36,7 @@ with st.sidebar:
 
 df1 = df.query('campaign == @Campaign_filter & age == @Age_filter & gender == @Gender_filter')
 
-st.dataframe(df1)
+
 
 total_impressions = float(df1['Impressions'].sum())
 total_clicks = float(df1['Clicks'].sum())
