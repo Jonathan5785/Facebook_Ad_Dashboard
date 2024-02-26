@@ -110,6 +110,12 @@ with Q4:
     st.plotly_chart(fig_CPC_by_age,use_container_width=True)
 
 
+
+st.sidebar.markdown('''
+Link to my ❤️ **[My Github](https://github.com/Jonathan5785/Facebook_Ad_Dashboard).**
+''')
+
+
 # --------HIDE STREAMLIT STYLE--------
 hide_st_style='''
             <style>
