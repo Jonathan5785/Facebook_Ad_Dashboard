@@ -36,6 +36,8 @@ with st.sidebar:
 
 df1 = df.query('campaign == @Campaign_filter & age == @Age_filter & gender == @Gender_filter')
 
+st.dataframe(df1)
+
 total_impressions = float(df1['Impressions'].sum())
 total_clicks = float(df1['Clicks'].sum())
 total_spent = float(df1['Spent'].sum())
@@ -68,7 +70,7 @@ with total5:
 Q1,Q2 = st.columns(2)
 
 with Q1:
-    df3 = df1.groupby(by = ['campaign']).sum()[['Impressions','Clicks']].reset_index()
+    df3 = df1.groupby(by = ['campaign']).sum([['Impressions','Clicks']]).reset_index()
     df3['CTR'] =round(df3['Clicks']/df3['Impressions'] *100,3)
     fig_CTR_by_campaign = px.bar(df3,
                             x='campaign',
@@ -97,13 +99,13 @@ with Q2:
 Q3,Q4 = st.columns(2)
 
 with Q3:
-    df4 = df1.groupby(by='gender').sum()[['Spent']].reset_index()
+    df4 = df1.groupby(by='gender').sum([['Spent']]).reset_index()
     fig_spend_by_gender = px.pie(df4,names='gender',values='Spent',title='<b>Ad Spend By Gender</b>')
     fig_spend_by_gender.update_layout(title = {'x':0.5}, plot_bgcolor = "rgba(0,0,0,0)")
     st.plotly_chart(fig_spend_by_gender,use_container_width=True)
 
 with Q4:
-    df5 = df1.groupby(by='age').sum()[['Spent','Total_Conversion']].reset_index()
+    df5 = df1.groupby(by='age').sum([['Spent','Total_Conversion']]).reset_index()
     df5['CPC'] = round(df5['Spent']/df5['Total_Conversion'],2)
     fig_CPC_by_age = px.bar(df5,x = 'age',y='CPC',title='<b>Cost Per Conversion By Age Demographic</b>')
     fig_CPC_by_age.update_layout(title = {'x':0.5},xaxis =(dict(showgrid = False)),yaxis =(dict(showgrid = False)), plot_bgcolor = "rgba(0,0,0,0)")
